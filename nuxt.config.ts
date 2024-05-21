@@ -3,7 +3,7 @@
 const temaCustomizado = {
   dark: true,
   colors: {
-    background: '#660000',
+    background: '#000',
     surface: '#FFFFFF',
     primary: '#6200EE',
     'primary-darken-1': '#3700B3',
