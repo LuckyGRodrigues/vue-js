@@ -2,16 +2,6 @@
   <body>
     <v-app>
       <v-container>
-        <template v-slot:text>
-          <v-text-field
-            v-model="search"
-            label="Search"
-            prepend-inner-icon="mdi-magnify"
-            variant="outlined"
-            hide-details
-            single-line
-          ></v-text-field>
-        </template>
         <v-data-table 
           :headers= "headers" 
           :items="items"
@@ -42,6 +32,12 @@
               <v-toolbar-title>
                 TABELASSO
               </v-toolbar-title>
+              <v-btn 
+              style="color: yellow; background-color: brown;"
+              @click="mudaPagina()">
+              >
+              new page
+              </v-btn>
               <v-btn 
               style="color: yellow; background-color: brown;"
               @click="ativo = true">
@@ -244,7 +240,7 @@
           return response;
       },
       mudaPagina() {
-        this.$router.push({ path: '/variavel' });
+        this.$router.push({ path: '/pagina'});
       },
       async deleteItem (item){
         if(confirm(`Deseja deletar?`)){ 
