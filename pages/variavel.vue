@@ -2,58 +2,14 @@
   <body>
     <v-app>
       <v-container>
-        <v-data-table 
-          :headers= "headers" 
+        <TabelaComponent
+          titulo="Tabelasso"
           :items="items"
-          :search="search" 
-          theme="light" 
-          height="300"
-          @deleteItem="deleteItem"
-          @editItem="editItem"
-        >
-          <template v-slot:item.action="{ item }">
-            <v-icon 
-              class="me-2"
-              size="small"
-              @click="editItem(item)"
-            >
-              mdi-pencil
-            </v-icon>
-            <v-icon 
-              size="small"
-              color="error"
-              @click="deleteItem(item)"
-            >
-              mdi-delete
-            </v-icon>
-          </template>
-          <template v-slot:top>
-            <v-toolbar flat>            
-              <v-toolbar-title>
-                TABELASSO
-              </v-toolbar-title>
-              <v-btn 
-              style="color: yellow; background-color: brown;"
-              @click="mudaPagina()">
-              >
-              new page
-              </v-btn>
-              <v-btn 
-              style="color: yellow; background-color: brown;"
-              @click="ativo = true">
-                New
-              </v-btn>
-            </v-toolbar>
-            <v-text-field
-              v-model="search"
-              label="Search"
-              prepend-inner-icon="mdi-magnify"
-              variant="outlined"
-              hide-details
-              single-line
-            ></v-text-field>
-          </template>
-        </v-data-table>
+          :headers="headers"
+          @editou="editItem"
+          @deletou="deleteItem"
+          @abrir-dialog="() => ativo = true"
+        />
         <v-dialog
           v-model="ativo"
           max-width="500"
